@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend-rs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      module: frontend
+
+  template:
+    metadata:
+      labels:
+        module: frontend
+
+    spec:
+      containers:
+      - name: frontend-pod
+        image: lawrencelin/weather_frontend

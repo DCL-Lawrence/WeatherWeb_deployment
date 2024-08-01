@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: backend-rs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      module: backend
+
+  template:
+    metadata:
+      labels:
+        module: backend
+
+    spec:
+      containers:
+      - name: backend-pod
+        image: lawrencelin/weather_backend
